@@ -1,0 +1,22 @@
+######################################play-book######################################################
+
+---
+- hosts: localhost
+  become: true
+
+  tasks:
+    - name: Install httpd Package
+      package:
+        name: apache2
+        state: present
+
+    - name: Copy the customized index.html file
+      template:
+        src: kong.j2
+        dest: /var/www/html/index.html
+
+    - name: Restart and enable httpd service
+      service:
+        name: apache2  # Change to the correct service name if necessary
+        state: restarted
+        enabled: true

@@ -20,3 +20,9 @@
         name: apache2  # Change to the correct service name if necessary
         state: restarted
         enabled: true
+
+
+
+
+#### use this command 
+#ansible-playbook play-book.yml -vv
